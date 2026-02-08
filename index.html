@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akintade Akinokun | Healthcare Data Security & GRC Leader</title>
+    <style>
+        :root {
+            --navy: #003366;
+            --navy-light: #004080;
+            --accent: #0066cc;
+            --accent-light: #e8f0fe;
+            --dark: #1a1a2e;
+            --gray-dark: #333;
+            --gray: #555;
+            --gray-light: #888;
+            --gray-bg: #f5f7fa;
+            --white: #ffffff;
+            --red: #c0392b;
+            --red-bg: #fdf2f2;
+            --green: #27ae60;
+            --green-bg: #f0faf4;
+            --orange: #e67e22;
+            --orange-bg: #fef9f0;
+            --border: #e0e4e8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--navy);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        nav .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav .logo {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1rem 0;
+            letter-spacing: 0.5px;
+        }
+
+        nav .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        nav .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        nav .nav-links a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+            color: var(--white);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero .contact-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .hero .contact-bar a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+
+        .hero .contact-bar a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        .hero .badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-blue {
+            background: rgba(255,255,255,0.15);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .badge-green {
+            background: rgba(39,174,96,0.2);
+            color: #7dcea0;
+            border: 1px solid rgba(39,174,96,0.4);
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--gray-light);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .section-line {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray);
+            max-width: 900px;
+        }
+
+        /* ===== EXPERTISE GRID ===== */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .expertise-card {
+            background: var(--gray-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .expertise-card h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .expertise-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* ===== PROJECT SHOWCASE ===== */
+        #project {
+            background: var(--gray-bg);
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .project-header .tech {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-body p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature {
+            padding: 1rem;
+            background: var(--gray-bg);
+            border-radius: 8px;
+        }
+
+        .feature .number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .feature .label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .fca-callout {
+            background: var(--red-bg);
+            border-left: 4px solid var(--red);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1.5rem;
+        }
+
+        .fca-callout h4 {
+            color: var(--red);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .fca-callout p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .validation-callout {
+            background: var(--green-bg);
+            border-left: 4px solid var(--green);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .validation-callout h4 {
+            color: var(--green);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .validation-callout p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .cert-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .cert-group-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray-light);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .cert-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cert-tag-blue {
+            background: var(--accent-light);
+            color: var(--navy);
+        }
+
+        .cert-tag-orange {
+            background: var(--orange-bg);
+            color: var(--orange);
+        }
+
+        .cert-tag-green {
+            background: var(--green-bg);
+            color: var(--green);
+        }
+
+        .cert-tag-gray {
+            background: var(--gray-bg);
+            color: var(--gray);
+            border: 1px dashed var(--border);
+        }
+
+        .cert-tag .year {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--white);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-item.current::before {
+            background: var(--green);
+            box-shadow: 0 0 0 2px var(--green);
+        }
+
+        .timeline-item .role {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .timeline-item .company {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item .dates {
+            font-size: 0.85rem;
+            color: var(--gray-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-item .current-badge {
+            display: inline-block;
+            background: var(--green-bg);
+            color: var(--green);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-item ul li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .timeline-item ul li::before {
+            content: '\25B8';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .portfolio-note {
+            background: var(--accent-light);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--navy);
+        }
+
+        /* ===== EARLY CAREER ===== */
+        .early-career {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .early-card {
+            background: var(--gray-bg);
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+
+        .early-card .role {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .early-card .company {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .early-card .dates {
+            color: var(--gray-light);
+            font-size: 0.85rem;
+        }
+
+        .early-card p {
+            color: var(--gray);
+            font-size: 0.88rem;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== EDUCATION ===== */
+        #education {
+            background: var(--gray-bg);
+        }
+
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .edu-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .edu-card h3 {
+            color: var(--navy);
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-card .school {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .edu-card .relevance {
+            color: var(--gray-light);
+            font-size: 0.88rem;
+            font-style: italic;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer .cta {
+            font-size: 1.3rem;
+            color: var(--white);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .footer-line {
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 1.5rem auto;
+        }
+
+        footer .footer-note {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 1rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .contact-bar { flex-direction: column; gap: 0.5rem; }
+            nav .nav-links { display: none; }
+            section { padding: 3rem 1.25rem; }
+            .feature-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ===== SMOOTH SCROLL ===== */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-inner">
+        <div class="logo">AKINTADE AKINOKUN</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#project">Projects</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>AKINTADE AKINOKUN</h1>
+    <p class="subtitle">Data Security Architect &nbsp;|&nbsp; Healthcare GRC &amp; Compliance Leader &nbsp;|&nbsp; HIPAA &bull; NIST CSF &bull; AI Governance</p>
+    <div class="contact-bar">
+        <span>Houston, TX</span>
+        <a href="tel:8326602689">(832) 660-2689</a>
+        <a href="mailto:akins.aa1@gmail.com">akins.aa1@gmail.com</a>
+        <a href="https://linkedin.com/in/akintadeakins" target="_blank">LinkedIn</a>
+    </div>
+    <div class="badges">
+        <span class="badge badge-blue">U.S. Person</span>
+        <span class="badge badge-blue">Houston-Based</span>
+        <span class="badge badge-green">CISSP &mdash; March 2026</span>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">Executive Summary</h2>
+        <div class="section-line"></div>
+        <p class="about-content">
+            Healthcare cybersecurity and GRC leader with 10+ years of progressive experience building and
+            managing enterprise security and compliance programs within highly regulated healthcare environments.
+            Served as organizational CISO responsible for designing data security architectures, implementing
+            HIPAA Security Rule compliance programs covering Administrative, Physical, and Technical Safeguards,
+            and protecting PHI/ePHI across clinical and administrative systems. Specialized in DLP strategy,
+            data classification, and AI governance for healthcare organizations &mdash; including TAISE-certified
+            expertise in assessing AI system risks involving protected health information. Deep expertise in
+            NIST CSF 2.0, NIST SP 800-53, Texas HHS TAC 202, and CIS Controls implementation under the
+            Texas SB 2610 safe harbor framework. Law degree provides strong foundation for HIPAA regulatory
+            interpretation, privacy law analysis, and compliance program design. SANS-trained in CIS Controls
+            (SEC 366), with an engineering foundation in electrical/electronics systems applicable to medical
+            device and IoT security.
+        </p>
+
+        <div class="expertise-grid" style="margin-top: 2rem;">
+            <div class="expertise-card">
+                <h3>HIPAA &amp; Healthcare Compliance</h3>
+                <p>HIPAA Security Rule, PHI/ePHI Protection, Texas HHS TAC 202, Audit Readiness, Privacy Rule, Breach Notification</p>
+            </div>
+            <div class="expertise-card">
+                <h3>Data Security Architecture</h3>
+                <p>DLP Strategy, Data Classification, Encryption, Access Control, Shadow IT Detection, Data Loss Prevention Policy Design</p>
+            </div>
+            <div class="expertise-card">
+                <h3>Governance &amp; Risk</h3>
+                <p>Enterprise Risk Assessment, GRC Program Management, Vendor Risk Management, Policy Development, BAA Compliance</p>
+            </div>
+            <div class="expertise-card">
+                <h3>AI Governance</h3>
+                <p>Healthcare AI Risk Assessment, PHI in AI/ML Detection, TAISE Framework, Emerging Technology Governance, Shadow AI Monitoring</p>
+            </div>
+            <div class="expertise-card">
+                <h3>Security Frameworks</h3>
+                <p>NIST CSF 2.0, NIST SP 800-53, CIS Controls v8, Texas SB 2610, ISO 27001, Cross-Framework Control Mapping</p>
+            </div>
+            <div class="expertise-card">
+                <h3>Security Operations</h3>
+                <p>Incident Response, Security Awareness Training, Audit Logging, Cloud Security, Configuration Management</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section id="project">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-line"></div>
+
+        <!-- Healthcare Data Security & GRC Toolkit (FEATURED) -->
+        <div class="project-card">
+            <div class="project-header" style="background: linear-gradient(135deg, #0d4f4f, #1a7a6d);">
+                <h3>Healthcare Data Security &amp; GRC Assessment Toolkit</h3>
+                <span class="tech">Python &nbsp;|&nbsp; HIPAA &nbsp;|&nbsp; NIST CSF 2.0 &nbsp;|&nbsp; DLP &nbsp;|&nbsp; AI Governance &nbsp;|&nbsp; 2026</span>
+            </div>
+            <div class="project-body">
+                <p>
+                    Built a comprehensive healthcare GRC assessment toolkit purpose-built for hospital environments.
+                    Covers HIPAA Security Rule compliance assessment, cross-framework control mapping, PHI/PII data
+                    classification, DLP policy simulation, AI governance for healthcare AI systems, and risk management
+                    &mdash; demonstrating deep expertise in healthcare data security architecture and compliance program design.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature">
+                        <div class="number">49</div>
+                        <div class="label">HIPAA Security Rule Controls</div>
+                    </div>
+                    <div class="feature">
+                        <div class="number">14</div>
+                        <div class="label">PHI/PII Detection Patterns</div>
+                    </div>
+                    <div class="feature">
+                        <div class="number">12</div>
+                        <div class="label">Healthcare DLP Policies</div>
+                    </div>
+                    <div class="feature">
+                        <div class="number">13,472</div>
+                        <div class="label">Lines of Python (8 Modules)</div>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--navy); margin-bottom: 0.75rem;">Core Capabilities</h4>
+                <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        <strong>HIPAA Security Rule Assessment</strong> &mdash; All 49 controls across Administrative, Physical, Technical, Organizational, and Policy safeguards with maturity scoring (1-5 scale)
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        <strong>Cross-Framework Mapping</strong> &mdash; HIPAA &harr; NIST CSF 2.0 (51 subcategories) &harr; NIST SP 800-53 &harr; Texas HHS TAC 202
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        <strong>PHI/PII Data Classifier</strong> &mdash; Detects SSNs, MRNs, ICD-10 codes, NPI numbers, prescriptions, patient names, and 8 more data types with confidence scoring
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        <strong>DLP Policy Simulation</strong> &mdash; 12 healthcare DLP policies tested against 13 real-world scenarios (email PHI, cloud uploads, shadow IT, USB transfers) with effectiveness scoring
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        <strong>AI Governance</strong> &mdash; Inventories 12 hospital AI systems (Epic CDS, radiology AI, ChatGPT shadow IT), detects PHI in prompts, assesses compliance and governance maturity
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        <strong>Risk Assessment</strong> &mdash; 16 healthcare risks on 5&times;5 matrix with heat map, risk register, and remediation tracking
+                    </li>
+                </ul>
+
+                <div class="validation-callout" style="background: #f0faf4; border-left-color: #1a7a6d;">
+                    <h4 style="color: #1a7a6d;">Healthcare AI Governance Highlight</h4>
+                    <p>The AI governance module detects when clinicians enter PHI into generative AI tools (e.g., ChatGPT),
+                    flags unauthorized shadow IT AI systems as CRITICAL risk, and generates governance maturity scores &mdash;
+                    addressing one of the most pressing emerging data security challenges in healthcare today.</p>
+                </div>
+
+                <p style="margin-top: 1.25rem; margin-bottom: 0;">
+                    <a href="https://github.com/atkens4real2000-sudo/Healthcare-Data-Security-GRC-Toolkit" target="_blank"
+                       style="display: inline-block; padding: 0.6rem 1.5rem; background: var(--navy); color: var(--white); border-radius: 6px; text-decoration: none; font-size: 0.95rem; font-weight: 600;">
+                        View Source Code on GitHub &rarr;
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Cloud Security Scanner Project -->
+        <div class="project-card" style="margin-top: 2rem;">
+            <div class="project-header" style="background: linear-gradient(135deg, var(--navy), var(--navy-light));">
+                <h3>Automated Cloud Security Posture Scanner</h3>
+                <span class="tech">Python &nbsp;|&nbsp; AWS &nbsp;|&nbsp; CIS Benchmarks &nbsp;|&nbsp; 2025 &ndash; 2026</span>
+            </div>
+            <div class="project-body">
+                <p>
+                    Built an automated cloud security posture scanner that assesses AWS environments against
+                    CIS Benchmark controls. Developed as part of CIS Controls implementation consulting for
+                    Texas businesses under the SB 2610 safe harbor framework &mdash; directly applicable to
+                    healthcare cloud security assessments for HIPAA-compliant infrastructure, ensuring that
+                    organizations hosting PHI/ePHI in cloud environments maintain proactive security posture
+                    and qualify for legal protection against punitive damages.
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature">
+                        <div class="number">10+</div>
+                        <div class="label">CIS Benchmark Controls</div>
+                    </div>
+                    <div class="feature">
+                        <div class="number">7</div>
+                        <div class="label">AWS Service Categories</div>
+                    </div>
+                    <div class="feature">
+                        <div class="number">4</div>
+                        <div class="label">Severity Levels Graded</div>
+                    </div>
+                    <div class="feature">
+                        <div class="number">2</div>
+                        <div class="label">Report Formats (JSON + HTML)</div>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--navy); margin-bottom: 0.75rem;">Coverage Areas</h4>
+                <ul style="list-style: none; padding: 0; margin-bottom: 1rem;">
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        IAM Security &mdash; Root access keys, MFA enforcement, unused credential detection
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        S3 Storage Security &mdash; Block Public Access, default encryption, versioning
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        CloudTrail Audit Logging &mdash; Multi-region trail verification, log file validation
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        EC2 &amp; Network Security &mdash; Security group analysis, IMDSv2 enforcement
+                    </li>
+                    <li style="padding: 0.3rem 0; padding-left: 1.25rem; position: relative; color: var(--gray); font-size: 0.95rem;">
+                        <span style="position: absolute; left: 0; color: var(--accent);">&#9656;</span>
+                        Deployed as AWS Lambda for continuous automated scanning with email alerting
+                    </li>
+                </ul>
+
+                <div class="validation-callout" style="background: #f0f5ff; border-left-color: var(--accent);">
+                    <h4 style="color: var(--accent);">Texas SB 2610 Connection</h4>
+                    <p>This scanner was developed to support Texas businesses &mdash; including healthcare organizations &mdash;
+                    in meeting CIS Controls requirements under SB 2610, a state cybersecurity safe harbor law
+                    (effective September 2025) that provides legal protection from punitive damages for organizations
+                    demonstrating proactive cybersecurity compliance. Particularly relevant for healthcare entities
+                    managing HIPAA-compliant cloud infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+    <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div class="section-line"></div>
+
+        <div class="cert-group">
+            <div class="cert-group-title">Governance &amp; Cloud Security</div>
+            <div class="cert-tags">
+                <span class="cert-tag cert-tag-blue">CC &mdash; Certified in Cybersecurity (ISC2) <span class="year">2024</span></span>
+                <span class="cert-tag cert-tag-blue">CCSK &mdash; Cloud Security Knowledge (CSA) <span class="year">2023</span></span>
+                <span class="cert-tag cert-tag-blue">CCZT &mdash; Competence in Zero Trust (CSA)</span>
+            </div>
+        </div>
+
+        <div class="cert-group">
+            <div class="cert-group-title">AI Governance &amp; Emerging Technology</div>
+            <div class="cert-tags">
+                <span class="cert-tag cert-tag-green">TAISE &mdash; Trusted AI Safety Expert Certificate (CSA / Northeastern University)</span>
+            </div>
+        </div>
+
+        <div class="cert-group">
+            <div class="cert-group-title">Offensive &amp; Defensive Operations</div>
+            <div class="cert-tags">
+                <span class="cert-tag cert-tag-orange">CEH &mdash; Certified Ethical Hacker (EC-Council)</span>
+                <span class="cert-tag cert-tag-orange">CND &mdash; Certified Network Defender (EC-Council)</span>
+                <span class="cert-tag cert-tag-orange">ECIH &mdash; Certified Incident Handler (EC-Council)</span>
+                <span class="cert-tag cert-tag-orange">CHFI &mdash; Computer Hacking Forensic Investigator (EC-Council)</span>
+            </div>
+        </div>
+
+        <div class="cert-group">
+            <div class="cert-group-title">CIS Controls &amp; ICS/OT</div>
+            <div class="cert-tags">
+                <span class="cert-tag cert-tag-green">SANS SEC 366 &mdash; Implementing and Auditing CIS Controls</span>
+                <span class="cert-tag cert-tag-green">OT/ICS &mdash; Accelerated OT/ICS Cybersecurity Bootcamp <span class="year">2025</span></span>
+                <span class="cert-tag cert-tag-green">Kali Linux for OT/ICS Workshop <span class="year">2025</span></span>
+            </div>
+        </div>
+
+        <div class="cert-group">
+            <div class="cert-group-title">In Progress</div>
+            <div class="cert-tags">
+                <span class="cert-tag cert-tag-gray">CISSP &mdash; Exam Scheduled March 2026</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="section-line"></div>
+
+        <div class="portfolio-note">
+            <strong>Healthcare Cybersecurity &amp; Data Security Leadership</strong> &mdash;
+            Provided executive cybersecurity, privacy, and HIPAA compliance leadership across
+            multiple affiliated healthcare organizations, designing data security architectures
+            and managing GRC programs protecting PHI/ePHI in clinical and administrative environments.
+        </div>
+
+        <div class="timeline">
+            <!-- Sumic Health -->
+            <div class="timeline-item current">
+                <div class="role">Chief Information Security Officer (CISO) <span class="current-badge">CURRENT</span></div>
+                <div class="company">Sumic Health Inc. / Sumic Care Inc.</div>
+                <div class="dates">2017 &mdash; Present</div>
+                <ul>
+                    <li>Led HIPAA Security Rule compliance programs, implementing Administrative, Physical, and Technical Safeguards to protect PHI/ePHI across all organizational systems</li>
+                    <li>Architected data security controls for PHI/ePHI protection including encryption, access control, audit logging, and data classification policies</li>
+                    <li>Directed security awareness training programs for clinical and administrative staff, ensuring workforce compliance with HIPAA privacy and security requirements</li>
+                    <li>Managed GRC operations including enterprise risk register, control assessments, audit evidence collection, and remediation tracking aligned with NIST SP 800-53/CSF principles</li>
+                </ul>
+            </div>
+
+            <!-- Optimum Advantage -->
+            <div class="timeline-item current">
+                <div class="role">Cybersecurity &amp; Compliance Consultant <span class="current-badge">CURRENT</span></div>
+                <div class="company">Optimum Advantage Consultants LLC</div>
+                <div class="dates">2018 &mdash; Present</div>
+                <ul>
+                    <li>Helped multiple Texas businesses implement CIS Controls under Texas SB 2610 safe harbor framework, providing legal protection for proactive cybersecurity posture</li>
+                    <li>Conducted vendor risk assessments ensuring Business Associate Agreement (BAA) compliance and third-party security controls for organizations handling PHI</li>
+                    <li>Led compliance advisory and gap assessments for healthcare organizations, mapping controls across HIPAA, NIST CSF 2.0, and Texas HHS TAC 202</li>
+                    <li>Managed audit readiness programs including documentation, evidence collection, and remediation planning for healthcare compliance assessments</li>
+                </ul>
+            </div>
+
+            <!-- Alltech Home Health -->
+            <div class="timeline-item">
+                <div class="role">Alternate Administrator / Senior Privacy &amp; Security Officer</div>
+                <div class="company">Alltech Home Health, Inc.</div>
+                <div class="dates">2015 &mdash; 2025</div>
+                <ul>
+                    <li>Served as primary liaison during federal surveyor interviews and compliance assessments, representing the organization in hundreds of regulatory interactions</li>
+                    <li>Led HIPAA privacy and security compliance programs, ensuring adherence to Privacy Rule, Security Rule, and Breach Notification requirements</li>
+                    <li>Managed vendor risk assessments and third-party security evaluations, enforcing BAA compliance and minimum necessary PHI access standards</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Early Career -->
+        <h3 style="color: var(--navy); margin-top: 2rem; margin-bottom: 1rem;">Early Career Foundation</h3>
+        <div class="early-career">
+            <div class="early-card">
+                <div class="role">IAM Supervisor</div>
+                <div class="company">Delaware North Companies, London</div>
+                <div class="dates">2009 &mdash; 2012</div>
+                <p>Supervised identity and access management operations for international hospitality enterprise, managing user provisioning, access reviews, and role-based access control (RBAC) &mdash; directly applicable to healthcare access management and minimum necessary PHI access enforcement.</p>
+            </div>
+            <div class="early-card">
+                <div class="role">Systems Administrator</div>
+                <div class="company">Stella Maris School, Belize</div>
+                <div class="dates">2004 &mdash; 2008</div>
+                <p>Managed network infrastructure, systems administration, and IT operations, establishing foundational technical expertise in system hardening and configuration management.</p>
+            </div>
+            <div class="early-card">
+                <div class="role">Industrial Intern (Electrical Engineering)</div>
+                <div class="company">Egbin Power Station, Lagos, Nigeria</div>
+                <div class="dates">2001 (6 months)</div>
+                <p>Completed industrial internship at Nigeria's largest electricity generating station (1,320 MW), gaining hands-on experience with power generation SCADA systems, industrial control systems, and critical infrastructure operations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+
+        <div class="edu-grid">
+            <div class="edu-card">
+                <h3>LLB (Bachelor of Laws)</h3>
+                <div class="school">University of London</div>
+                <div class="relevance">Legal training directly applicable to HIPAA regulatory interpretation, privacy law, compliance program design, and healthcare regulatory advisory</div>
+            </div>
+            <div class="edu-card">
+                <h3>National Diploma, Electrical/Electronics Engineering</h3>
+                <div class="school">Federal Polytechnic, Offa</div>
+                <div class="relevance">Engineering foundation directly applicable to technical security architecture, network security, medical device security, and IoT/connected health device protection</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+    <div class="cta">Let's Discuss How I Can Strengthen Your Data Security Program</div>
+    <p><a href="mailto:akins.aa1@gmail.com">akins.aa1@gmail.com</a> &nbsp;|&nbsp; <a href="tel:8326602689">(832) 660-2689</a></p>
+    <p><a href="https://linkedin.com/in/akintadeakins" target="_blank">linkedin.com/in/akintadeakins</a></p>
+    <div class="footer-line"></div>
+    <p>Houston, TX &nbsp;|&nbsp; U.S. Person</p>
+    <p class="footer-note">&copy; 2026 Akintade Akinokun. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
